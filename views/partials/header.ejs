@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YelpCamp</title>
+
+        <!-- boostrap cdn  -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="/stylesheets/main.css">
+
+    </head>
+    <body>
+        <nav class="navbar bg-light navbar-light navbar-expand-lg mb-3">
+            <div class="container">
+                <a href="/" class="navbar-brand">YelpCamp</a>
+        
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <% if(!currentUser){ %>
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link">Login</a>                    
+                            </li>
+            
+                            <li class="nav-item">
+                                <a href="/register" class="nav-link">Register</a>                    
+                            </li>
+                        <% } else{ %>
+                            <li class="nav-item active">
+                                <a href="#" class="nav-link">Hello <%= currentUser.username %>!</a>                    
+                            </li>
+                            <li class="nav-item">
+                                <a href="/logout" class="nav-link">Logout</a>                    
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>        
+
+            <div class="container">
+
+                <% if(error && error.length > 0 ) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                <% } %>
+                
+                <% if(success && success.length > 0 ) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= success %>
+                    </div>
+                <% } %>
+                
+            </div>
